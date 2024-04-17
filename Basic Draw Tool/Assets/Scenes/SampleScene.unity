@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748527142}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -581,6 +581,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &662489320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 662489321}
+  - component: {fileID: 662489322}
+  m_Layer: 0
+  m_Name: Eraser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &662489321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662489320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 550.5, y: 310, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662489322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662489320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78e71b3297c7454e9cd71a3feb9a81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692402947
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 4531002888759407560, guid: d903abce4b344f740b4257703158fab5,
     type: 3}
+  toolIdentity: 0
 --- !u!4 &692402949
 Transform:
   m_ObjectHideFlags: 0
@@ -1351,7 +1396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2960f4000c70614ca7a7f16c18c47fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTool: 0
+  currentTool: 1
+  pen: {fileID: 692402947}
+  eraser: {fileID: 662489320}
   penButton: {fileID: 194862458}
   eraserButton: {fileID: 1983168847}
   bucketButton: {fileID: 402265435}
@@ -1621,3 +1668,4 @@ SceneRoots:
   - {fileID: 692402949}
   - {fileID: 1748527143}
   - {fileID: 1339162809}
+  - {fileID: 662489321}

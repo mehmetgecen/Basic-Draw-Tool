@@ -6,7 +6,7 @@ using UnityEngine;
 public class LineGenerator : MonoBehaviour
 {
     public GameObject linePrefab;
-    
+    public ToolManager.ToolType toolIdentity;
     Line activeLine;
 
     private void Update()

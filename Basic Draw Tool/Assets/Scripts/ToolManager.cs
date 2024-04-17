@@ -15,6 +15,12 @@ public class ToolManager : MonoBehaviour
     
     public ToolType currentTool = ToolType.Pen;
     
+    [SerializeField] GameObject pen;
+    [SerializeField] GameObject eraser;
+    //[SerializeField] GameObject bucket;
+    //[SerializeField] GameObject stamp;
+    
+    
     public Button penButton;
     public Button eraserButton;
     public Button bucketButton;
@@ -34,16 +40,18 @@ public class ToolManager : MonoBehaviour
         switch (currentTool)
         {
             case ToolType.Pen:
-                //HandleDrawInput();
+                pen.SetActive(true);
+                eraser.SetActive(false);
                 break;
             case ToolType.Eraser:
-               // HandleEraseInput();
+                pen.SetActive(false);
+                eraser.SetActive(true);
                 break;
             case ToolType.Bucket:
-                // HandleBucketInput();
+                pen.SetActive(false);
                 break;
             case ToolType.Stamp:
-               // HandleStampInput();
+                pen.SetActive(false);
                 break;
         }
     }
