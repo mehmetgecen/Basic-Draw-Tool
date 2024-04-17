@@ -17,7 +17,7 @@ public class ToolManager : MonoBehaviour
     
     [SerializeField] GameObject pen;
     [SerializeField] GameObject eraser;
-    //[SerializeField] GameObject bucket;
+    [SerializeField] GameObject bucket;
     //[SerializeField] GameObject stamp;
     
     
@@ -42,13 +42,17 @@ public class ToolManager : MonoBehaviour
             case ToolType.Pen:
                 pen.SetActive(true);
                 eraser.SetActive(false);
+                bucket.SetActive(false);
                 break;
             case ToolType.Eraser:
                 pen.SetActive(false);
                 eraser.SetActive(true);
+                bucket.SetActive(false);
                 break;
             case ToolType.Bucket:
                 pen.SetActive(false);
+                eraser.SetActive(false);
+                bucket.SetActive(true);
                 break;
             case ToolType.Stamp:
                 pen.SetActive(false);
