@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LineGenerator : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class LineGenerator : MonoBehaviour
 
     private void Update()
     {
+        if (InteractWithUI())
+        {
+            return;
+        }
+        
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newLine = Instantiate(linePrefab);
             activeLine = newLine.GetComponent<Line>();
-            
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -29,5 +34,14 @@ public class LineGenerator : MonoBehaviour
             activeLine.UpdateLine(mousePosition);
         }
         
+    }
+    
+    private bool InteractWithUI()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+        return false;
     }
 }
