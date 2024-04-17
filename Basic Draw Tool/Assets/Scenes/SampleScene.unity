@@ -858,7 +858,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f65b06096046f49b6f3111b72e03d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stampPrefab: {fileID: 832416726}
+  stampPrefabs:
+  - {fileID: 9077994206659618312, guid: 2f99d2ce8ed8a1649b3dfa1cf997e318, type: 3}
+  - {fileID: 3128739945589767218, guid: 40b0edebc0c50df49865d3e775b8505a, type: 3}
+  - {fileID: 5415782336836625254, guid: 1f1beacc7144e3c4db5f21771a01d1a5, type: 3}
+  - {fileID: 8666816178768937822, guid: 88675fa2ba43c85418882465fa70650a, type: 3}
+  - {fileID: 13939009053357577, guid: 9d8b50f999c143b4c9f1440336deb676, type: 3}
+  - {fileID: 5474225277539111863, guid: 45047f3bb34f9c6499f3ca76b382c821, type: 3}
+  - {fileID: 7134110586343236687, guid: 786a922e3337e5d44baac9816056be76, type: 3}
+  - {fileID: 2028730950472532238, guid: ffc1c4670601b8e4e992b8795ed5f0fc, type: 3}
+  spawnDistance: 1
 --- !u!1 &941361496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1480,7 @@ Transform:
   m_GameObject: {fileID: 1748527142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5781884, y: 3.2724197, z: -0.79688203}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
