@@ -7,11 +7,9 @@ using UnityEngine.Serialization;
 
 public class PaintCanvas : MonoBehaviour
 {
-    public Color selectedColor;
-    
     [SerializeField] private AudioClip fillSound;
+    public ColorPicker colorPicker;
     private AudioSource audioSource;
-
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -38,7 +36,7 @@ public class PaintCanvas : MonoBehaviour
     public void FillCanvasWithColor()
     {
         // Fill the canvas with the selected color
-        Camera.main.backgroundColor = selectedColor;
+        Camera.main.backgroundColor = colorPicker.GetCurrentColor();
     }
     
     //Destroy Line and Eraser Line Gameobjects

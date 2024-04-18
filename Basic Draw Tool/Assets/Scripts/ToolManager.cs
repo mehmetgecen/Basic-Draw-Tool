@@ -26,6 +26,8 @@ public class ToolManager : MonoBehaviour
     public Button bucketButton;
     public Button stampButton;
     
+    public GameObject colorPicker;
+    
     private void Start()
     {
         // Attach onClick events to each button
@@ -70,5 +72,16 @@ public class ToolManager : MonoBehaviour
     {
         currentTool = tool;
         print(currentTool);
+    }
+    
+    //enable and disable ui gameobjects
+    public void EnableColorPicker()
+    {
+        colorPicker.SetActive(true);
+    }
+    
+    public void DisableColorPicker()
+    {
+        colorPicker.SetActive(false);   
     }
 }
