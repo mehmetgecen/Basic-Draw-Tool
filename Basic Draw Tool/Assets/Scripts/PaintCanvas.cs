@@ -2,18 +2,36 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class PaintCanvas : MonoBehaviour
 {
     public Color selectedColor;
+    
+    [SerializeField] private AudioClip fillSound;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = fillSound;
+    }
 
     private void Update()
     {
+        if (InteractWithUI())
+        {
+            return;
+        }
+        
         if (Input.GetMouseButton(0))
         {
             ClearLines();
             ClearEraserLines();
             FillCanvasWithColor();
+            audioSource.Play();
+            
         }
     }
 
@@ -41,6 +59,15 @@ public class PaintCanvas : MonoBehaviour
         {
             Destroy(line);
         }
+    }
+    
+    private bool InteractWithUI()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+        return false;
     }
     
 }
