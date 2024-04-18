@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class StampController : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class StampController : MonoBehaviour
 
     void Update()
     {
+        if (InteractWithUI())
+        {
+            return;
+        }
+        
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -19,6 +25,15 @@ public class StampController : MonoBehaviour
     GameObject SelectRandomStamp()
     {
         return stampPrefabs[Random.Range(0, stampPrefabs.Length)];
+    }
+    
+    private bool InteractWithUI()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+        return false;
     }
     
 }

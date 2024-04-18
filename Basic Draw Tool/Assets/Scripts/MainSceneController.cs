@@ -23,7 +23,7 @@ public class MainSceneController : MonoBehaviour
         {
             Debug.Log("First Run");
             PlayerPrefs.SetInt("IsFirst", 1);
-            Invoke(nameof(LoadDrawScene), 2f);
+            Invoke(nameof(LoadDrawScene), 4f);
         }
         else
         {
