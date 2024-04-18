@@ -22,8 +22,12 @@ public class LineGenerator : MonoBehaviour
         {
             GameObject newLine = Instantiate(linePrefab);
             activeLine = newLine.GetComponent<Line>();
-            activeLine.lineRenderer.material.color = colorPicker.GetCurrentColor();
 
+            if (colorPicker!= null)
+            {
+                activeLine.lineRenderer.material.color = colorPicker.GetCurrentColor();
+            }
+            
         }
 
         if (Input.GetMouseButtonUp(0))
