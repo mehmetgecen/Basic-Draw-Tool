@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MainSceneController : MonoBehaviour
 {
-    //quit playmode and reset player prefs 
-    [MenuItem("Tools/Reset Player Prefs")]
     public static void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
-        EditorApplication.ExitPlaymode();
+        //EditorApplication.ExitPlaymode();
     }
     
     

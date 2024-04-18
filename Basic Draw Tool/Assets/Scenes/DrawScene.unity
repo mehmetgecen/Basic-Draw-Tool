@@ -2045,7 +2045,6 @@ GameObject:
   m_Component:
   - component: {fileID: 662489321}
   - component: {fileID: 662489322}
-  - component: {fileID: 662489323}
   m_Layer: 0
   m_Name: Eraser
   m_TagString: Untagged
@@ -2084,18 +2083,6 @@ MonoBehaviour:
     type: 3}
   toolIdentity: 1
   colorPicker: {fileID: 0}
---- !u!114 &662489323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662489320}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78e71b3297c7454e9cd71a3feb9a81c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &692402947
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,8 +3004,8 @@ RectTransform:
   - {fileID: 402265434}
   - {fileID: 1413280195}
   - {fileID: 1983168846}
-  - {fileID: 112129810}
   - {fileID: 562797001}
+  - {fileID: 112129810}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
