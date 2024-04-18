@@ -8,8 +8,9 @@ public class LineGenerator : MonoBehaviour
 {
     public GameObject linePrefab;
     public ToolManager.ToolType toolIdentity;
+    public Color lineColor;
     Line activeLine;
-
+    
     private void Update()
     {
         if (InteractWithUI())
@@ -21,6 +22,8 @@ public class LineGenerator : MonoBehaviour
         {
             GameObject newLine = Instantiate(linePrefab);
             activeLine = newLine.GetComponent<Line>();
+            activeLine.lineRenderer.material.color = lineColor;
+            
         }
 
         if (Input.GetMouseButtonUp(0))
