@@ -2045,6 +2045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662489321}
   - component: {fileID: 662489322}
+  - component: {fileID: 662489323}
   m_Layer: 0
   m_Name: Eraser
   m_TagString: Untagged
@@ -2083,6 +2084,18 @@ MonoBehaviour:
     type: 3}
   toolIdentity: 1
   colorPicker: {fileID: 0}
+--- !u!114 &662489323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662489320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f965561e4f46f243bf81cc5725d8ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692402947
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,7 +3406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2960f4000c70614ca7a7f16c18c47fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTool: 1
+  currentTool: 0
   pen: {fileID: 692402947}
   eraser: {fileID: 662489320}
   bucket: {fileID: 559901232}
