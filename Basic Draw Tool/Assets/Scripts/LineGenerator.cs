@@ -9,6 +9,7 @@ public class LineGenerator : MonoBehaviour
     public GameObject linePrefab;
     public ToolManager.ToolType toolIdentity;
     public ColorPicker colorPicker;
+    public BrushResizer brushResizer;
     Line activeLine;
     
     private void Update()
@@ -17,6 +18,8 @@ public class LineGenerator : MonoBehaviour
         {
             return;
         }
+        
+        SetLineWidth();
         
         if (Input.GetMouseButtonDown(0))
         {
@@ -51,4 +54,15 @@ public class LineGenerator : MonoBehaviour
         }
         return false;
     }
+    
+    //set line width
+    public void SetLineWidth()
+    {
+        if (activeLine != null)
+        {
+            brushResizer.SetLineRendererWidth(activeLine.lineRenderer);
+        }
+    }
+    
+   
 }
