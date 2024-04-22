@@ -5,11 +5,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
     public AudioSource audioSource;
-
     public AudioClip[] audioClips;
-
+    
+    [SerializeField] private GameObject backgroundMusic;
+    
     void Awake()
     {
         if (instance == null)
@@ -28,9 +28,18 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
     
-    public void PlayBackgroundMusic()
+    
+    public void ToggleBackgroundMusic()
     {
-        audioSource.clip = audioClips[0];
-        audioSource.Play();
+        AudioSource backgroundMusicAudio = backgroundMusic.GetComponent<AudioSource>();
+        
+        if (backgroundMusicAudio.isPlaying)
+        {
+            backgroundMusicAudio.Pause();
+        }
+        else
+        {
+            backgroundMusicAudio.Play();
+        }
     }
 }
