@@ -7,11 +7,18 @@ using UnityEngine.UI;
 public class BrushResizer : MonoBehaviour
 {
     [SerializeField] private float previewSizeFactor = 200f;
+    [SerializeField] private float defaultSize;
     public Slider sizeSlider; 
     public Image previewImage;
     private float _currentSize;
-
     
+
+    private void Start()
+    {
+        defaultSize = sizeSlider.value * previewSizeFactor ;
+        _currentSize = defaultSize;
+        UpdatePreview();
+    }
 
     public void OnSizeChanged()
     {
