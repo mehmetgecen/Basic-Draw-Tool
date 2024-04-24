@@ -14,14 +14,14 @@ public class LineGenerator : MonoBehaviour
     
     private void Update()
     {
-        if (InteractWithUI())
+        /*if (InteractWithUI())
         {
             return;
-        }
+        }*/
         
         SetLineWidth();
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !InteractWithUI())
         {
             GameObject newLine = Instantiate(linePrefab);
             activeLine = newLine.GetComponent<Line>();

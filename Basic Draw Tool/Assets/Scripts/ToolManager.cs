@@ -10,7 +10,8 @@ public class ToolManager : MonoBehaviour
         Pen,
         Eraser,
         Bucket,
-        Stamp
+        Stamp,
+        Idle
     }
     
     public ToolType currentTool = ToolType.Pen;
@@ -30,6 +31,8 @@ public class ToolManager : MonoBehaviour
     
     private void Start()
     {
+        currentTool = ToolType.Idle;
+        
         // Attach onClick events to each button
         penButton.onClick.AddListener(() => SetTool(ToolType.Pen));
         eraserButton.onClick.AddListener(() => SetTool(ToolType.Eraser));
@@ -41,6 +44,13 @@ public class ToolManager : MonoBehaviour
     {
         switch (currentTool)
         {
+            case ToolType.Idle:
+                pen.SetActive(false);
+                eraser.SetActive(false);
+                bucket.SetActive(false);
+                stamp.SetActive(false);
+                break;
+            
             case ToolType.Pen:
                 pen.SetActive(true);
                 eraser.SetActive(false);

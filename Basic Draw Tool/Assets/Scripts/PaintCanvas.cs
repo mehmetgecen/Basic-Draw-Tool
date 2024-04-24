@@ -18,12 +18,12 @@ public class PaintCanvas : MonoBehaviour
 
     private void Update()
     {
-        if (InteractWithUI())
+        /*if (InteractWithUI())
         {
             return;
-        }
+        }*/
         
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && InteractWithUI())
         {
             ClearLines();
             ClearEraserLines();
