@@ -858,6 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewSizeFactor: 200
   defaultSize: 0
+  colorPicker: {fileID: 1480254342}
   sizeSlider: {fileID: 1486994467}
   previewImage: {fileID: 56264869}
 --- !u!1 &223903946
@@ -5730,7 +5731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2960f4000c70614ca7a7f16c18c47fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTool: 0
+  currentTool: 4
   pen: {fileID: 692402947}
   eraser: {fileID: 662489320}
   bucket: {fileID: 559901232}

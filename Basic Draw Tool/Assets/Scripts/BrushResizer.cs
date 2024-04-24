@@ -8,6 +8,7 @@ public class BrushResizer : MonoBehaviour
 {
     [SerializeField] private float previewSizeFactor = 200f;
     [SerializeField] private float defaultSize;
+    public ColorPicker colorPicker;
     public Slider sizeSlider; 
     public Image previewImage;
     private float _currentSize;
@@ -30,6 +31,7 @@ public class BrushResizer : MonoBehaviour
     void UpdatePreview()
     {
         previewImage.rectTransform.sizeDelta = new Vector2(_currentSize, _currentSize);
+        previewImage.color = colorPicker.GetCurrentColor();
     }
     
     // Function to get the currently selected brush size
