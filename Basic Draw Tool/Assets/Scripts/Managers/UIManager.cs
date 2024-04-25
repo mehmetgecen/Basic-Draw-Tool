@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject colorPickerPanel;
     [SerializeField] GameObject brushResizerPanel;
+    [SerializeField] GameObject optionsPanel;
+    [SerializeField] GameObject eraserDeciderPanel;
     
     
     public void DisableColorPicker()
@@ -16,6 +18,26 @@ public class UIManager : MonoBehaviour
     public void DisableBrushResizer()
     {
         brushResizerPanel.SetActive(false);
+    }
+    
+    public void DisableOptionsPanel()
+    {
+        optionsPanel.SetActive(false);
+    }
+    
+    public void DisableEraserDecider()
+    {
+        eraserDeciderPanel.SetActive(false);
+    }
+    
+    public void EnableEraserDecider()
+    {
+        eraserDeciderPanel.SetActive(true);
+    }
+    
+    public void EnableOptionsPanel()
+    {
+        optionsPanel.SetActive(true);
     }
     
     public void ToggleBrushResizer()

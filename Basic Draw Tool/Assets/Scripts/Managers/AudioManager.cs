@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] audioClips;
     
     [SerializeField] private GameObject backgroundMusic;
+    [SerializeField] private Slider backgroundMusicVolumeSlider;
     
     void Awake()
     {
@@ -42,4 +44,15 @@ public class AudioManager : MonoBehaviour
             backgroundMusicAudio.Play();
         }
     }
+    
+    // adjust background music volume with slider
+    public void AdjustBackgroundMusicVolume()
+    {
+        AudioSource backgroundMusicAudio = backgroundMusic.GetComponent<AudioSource>();
+        backgroundMusicAudio.volume = backgroundMusicVolumeSlider.value;
+    }
+    
+    
+    
+    
 }
