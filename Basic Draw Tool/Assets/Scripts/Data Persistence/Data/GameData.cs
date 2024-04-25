@@ -7,21 +7,25 @@ public class GameData
 {
     public List<Vector2> linePositions;
     public List<Vector3> stampPositions;
-    public Color backgroundColor;
+    
     public Color canvasColor;
     
-    /*
-    //brush size of line object
     public float brushSize;
-
-    //brush color of line object
-    public Color brushColor;*/
     
+    public Color brushColor;
+    public float redSliderValue;
+    public float greenSliderValue;
+    public float blueSliderValue;
+
     public GameData()
     {
         linePositions = new List<Vector2>();
         stampPositions = new List<Vector3>();
-        backgroundColor = Color.red;
         canvasColor = Color.white;
+        brushSize = 1f;
+        brushColor = Color.black;
+        redSliderValue = 0f;
+        greenSliderValue = 0f;
+        blueSliderValue = 0f;
     }
 }

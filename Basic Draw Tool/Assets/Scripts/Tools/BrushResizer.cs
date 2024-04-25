@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BrushResizer : MonoBehaviour
+public class BrushResizer : MonoBehaviour,IDataPersistence
 {
     [SerializeField] private float previewSizeFactor = 200f;
     [SerializeField] private float defaultSize;
@@ -51,5 +51,15 @@ public class BrushResizer : MonoBehaviour
     {
         lineRenderer.startWidth = _currentSize / previewSizeFactor;
         lineRenderer.endWidth = _currentSize / previewSizeFactor;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.brushSize = _currentSize;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        SetCurrentSize(gameData.brushSize);
     }
 }
