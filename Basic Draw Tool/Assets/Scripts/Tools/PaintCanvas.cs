@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-public class PaintCanvas : MonoBehaviour
+public class PaintCanvas : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private AudioClip fillSound;
     public ColorPicker colorPicker;
@@ -67,5 +67,14 @@ public class PaintCanvas : MonoBehaviour
         }
         return false;
     }
-    
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.canvasColor = Camera.main.backgroundColor;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        Camera.main.backgroundColor = gameData.canvasColor;
+    }
 }
