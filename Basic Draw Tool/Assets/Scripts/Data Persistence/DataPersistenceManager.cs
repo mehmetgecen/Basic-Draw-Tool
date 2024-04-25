@@ -6,10 +6,17 @@ using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
 {
-    public static DataPersistenceManager instance;
-    public GameData gameData;
-    public List<IDataPersistance> dataPersistenceObjects;
+    [Header("File Storage Configuration")]
+    
+    [SerializeField] private string fileName;
+    
+    private FileDataHandler dataHandler;
+    
+    private GameData gameData;
 
+    private List<IDataPersistence> dataPersistenceObjects;
+    public static DataPersistenceManager instance {get; private set;}
+    
     private void Awake()
     {
         if (instance == null)
@@ -25,7 +32,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
-        FindAllDataPersistenceObjects();
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
     
@@ -36,49 +44,61 @@ public class DataPersistenceManager : MonoBehaviour
     
     public void SaveGame()
     {
-        foreach (IDataPersistance persistenceObj in dataPersistenceObjects)
+        foreach (IDataPersistence persistenceObj in dataPersistenceObjects)
         {
-            persistenceObj.SaveGame(ref gameData);
+            persistenceObj.SaveData(ref gameData);
         }
         
-        /*
-        string json = JsonUtility.ToJson(gameData);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/gameData.json", json);*/
+        dataHandler.Save(gameData);
     }
 
     public void LoadGame()
     {
+        gameData = dataHandler.Load();
+        
         if (gameData == null)
         {
+            Debug.Log("No game data found. Initializing data to defaults.");
             NewGame();
         }
+        
+        List<IDataPersistence> tempDataPersistenceObjects = new List<IDataPersistence>(dataPersistenceObjects);
 
-        foreach (IDataPersistance persistenceObj in dataPersistenceObjects)
+        foreach (IDataPersistence persistenceObj in tempDataPersistenceObjects)
         {
-            persistenceObj.LoadGame(gameData);
+            persistenceObj.LoadData(gameData);
         }
         
         /*
-        if (System.IO.File.Exists(Application.persistentDataPath + "/gameData.json"))
+        foreach (IDataPersistence persistenceObj in dataPersistenceObjects)
         {
-            string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/gameData.json");
-            gameData = JsonUtility.FromJson<GameData>(json);
-        }
-        else
-        {
-            gameData = new GameData();
+            persistenceObj.LoadData(gameData);
         }*/
+        
     }
     
-    private List<IDataPersistance> FindAllDataPersistenceObjects()
+    private List<IDataPersistence> FindAllDataPersistenceObjects() 
     {
-        var dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistance>();
-        
-        return new List<IDataPersistance>(dataPersistenceObjects);
+        // FindObjectsofType takes in an optional boolean to include inactive gameobjects
+        IEnumerable<IDataPersistence> persistenceObjects = FindObjectsOfType<MonoBehaviour>(true)
+            .OfType<IDataPersistence>();
+
+        return new List<IDataPersistence>(persistenceObjects);
+    }
+    
+    public void RegisterDataPersistenceObject(IDataPersistence dataPersistenceObject)
+    {
+        if (dataPersistenceObjects == null)
+        {
+            dataPersistenceObjects = new List<IDataPersistence>();
+        }
+
+        dataPersistenceObjects.Add(dataPersistenceObject);
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
+        Debug.Log("Game data saved before quitting.");
     }
 }
