@@ -61,38 +61,5 @@ public class Stamp : MonoBehaviour,IDataPersistence
             Debug.Log("No stamp positions to load");
         }
     }
-    /*
-    public void SaveData(ref GameData gameData)
-    {
-        if (gameData.stampPositions == null)
-        {
-            gameData.stampPositions = new List<Vector3>();
-        }
-        gameData.stampPositions.Add(transform.position);
-        
-        //save the prefab type for generating the correct prefab when loading
-        
-    }
-    
-    public void LoadData(GameData gameData)
-    {
-        if (gameData.stampPositions != null)
-        {
-            Debug.Log("Loading " + gameData.stampPositions.Count + " stamp positions");
-            foreach (Vector3 position in gameData.stampPositions)
-            {
-                Debug.Log("Spawning stamp at position " + position);
-                GameObject newStamp = Instantiate(stampPrefab, position, Quaternion.identity);
-                if (newStamp == null)
-                {
-                    Debug.LogError("Failed to spawn stamp at position " + position);
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("No stamp positions to load");
-        }
-    }*/
 }
 

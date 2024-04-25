@@ -19,7 +19,9 @@ public class StampController : MonoBehaviour
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = spawnDistance;
-            Instantiate(SelectRandomStamp(), mousePosition, Quaternion.identity);
+            GameObject stamp = Instantiate(SelectRandomStamp(), mousePosition, Quaternion.identity);
+            stamp.GetComponent<AudioSource>().Play();
+            
         }
     }
     GameObject SelectRandomStamp()
