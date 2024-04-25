@@ -23,7 +23,7 @@ public class PaintCanvas : MonoBehaviour, IDataPersistence
             return;
         }*/
         
-        if (Input.GetMouseButton(0) && InteractWithUI())
+        if (Input.GetMouseButton(0) && !InteractWithUI())
         {
             ClearLines();
             ClearEraserLines();
@@ -35,8 +35,21 @@ public class PaintCanvas : MonoBehaviour, IDataPersistence
 
     public void FillCanvasWithColor()
     {
-        // Fill the canvas with the selected color
-        Camera.main.backgroundColor = colorPicker.GetCurrentColor();
+        if (Camera.main != null)
+        {
+            if (colorPicker != null)
+            {
+                Camera.main.backgroundColor = colorPicker.GetCurrentColor();
+            }
+            else
+            {
+                Debug.LogError("colorPicker is null");
+            }
+        }
+        else
+        {
+            Debug.LogError("No camera tagged as MainCamera");
+        }
     }
     
     //Destroy Line and Eraser Line Gameobjects
@@ -75,6 +88,13 @@ public class PaintCanvas : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData gameData)
     {
-        Camera.main.backgroundColor = gameData.canvasColor;
+        if (Camera.main != null)
+        {
+            Camera.main.backgroundColor = gameData.canvasColor;
+        }
+        else
+        {
+            Debug.LogError("No camera tagged as MainCamera");
+        }
     }
 }

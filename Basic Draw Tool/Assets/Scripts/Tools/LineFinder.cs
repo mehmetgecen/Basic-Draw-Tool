@@ -32,24 +32,33 @@ public class LineFinder : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (Camera.main == null)
+            {
+                Debug.LogError("No camera tagged as MainCamera");
+                return;
+            }
+
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             LineRenderer nearestLine = FindNearestLine(mousePosition);
-            
+
+            if (nearestLine == null)
+            {
+                Debug.LogError("No LineRenderer objects in scene");
+                return;
+            }
+
             float distanceBetweenPoints = Vector2.Distance(nearestLine.GetPosition(FindNearestLineIndex(mousePosition,nearestLine)),mousePosition);
-            
+
             print("Distance" + distanceBetweenPoints);
-            
+
             Debug.Log("Mouse Position" + mousePosition);
-            
-            if (nearestLine != null &&  distanceBetweenPoints < _deletionDistance)
+
+            if (distanceBetweenPoints < _deletionDistance)
             {
                 int nearestLineIndex = FindNearestLineIndex(mousePosition,nearestLine);
                 Destroy(nearestLine.gameObject);
-                
             }
-            
         }
-        
     }
     
     //return nearest line renderer index from mouse position
