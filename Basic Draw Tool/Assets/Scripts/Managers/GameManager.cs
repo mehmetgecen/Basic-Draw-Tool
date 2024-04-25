@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     
     public void LoadWelcomeScene()
     {
-        //TODO will be edited
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("IsFirst", 0);
         SceneManager.LoadScene("WelcomeScene");
     }
 }
