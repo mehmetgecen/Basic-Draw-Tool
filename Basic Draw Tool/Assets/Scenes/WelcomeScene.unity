@@ -552,7 +552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1089512528
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1885832725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1361,7 +1361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1887498693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1428,7 +1428,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 566695582}
         m_TargetAssemblyTypeName: MainSceneController, Assembly-CSharp
-        m_MethodName: LoadDrawScene
+        m_MethodName: LoadCanvasScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

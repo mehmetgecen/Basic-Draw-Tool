@@ -28,31 +28,27 @@ public class MainSceneController : MonoBehaviour
 
     private void Start()
     {
-        int isFirst = PlayerPrefs.GetInt("IsFirst");
-        
         if (!DataPersistenceManager.instance.HasGameData())
         {
-            PlayerPrefs.SetInt("IsFirst", 0);
             continueButton.interactable = false;
         }
+    }
+    
+    public void LoadCanvasScene()
+    {
+        int isFirst = PlayerPrefs.GetInt("IsFirst");
         
         if (isFirst == 0)
         {
             Debug.Log("First Run");
             PlayerPrefs.SetInt("IsFirst", 1);
-            //OnNewGameButtonClicked();
+            OnNewGameButtonClicked();
         }
         else
         {
             Debug.Log("Welcome Again!");
-            //OnContinueButtonClicked();
+            OnContinueButtonClicked();
         }
+        
     }
-    
-    public void LoadDrawScene()
-    {
-        SceneManager.LoadScene("DrawScene");
-    }
-    
-    
 }
