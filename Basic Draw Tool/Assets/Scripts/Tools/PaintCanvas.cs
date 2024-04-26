@@ -18,12 +18,7 @@ public class PaintCanvas : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
-        /*if (InteractWithUI())
-        {
-            return;
-        }*/
-        
-        if (Input.GetMouseButton(0) && !InteractWithUI())
+        if (Input.GetMouseButtonDown(0) && !InteractWithUI())
         {
             ClearLines();
             ClearEraserLines();

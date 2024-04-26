@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LineFinder : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class LineFinder : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !InteractWithUI())
         {
             if (Camera.main == null)
             {
@@ -112,6 +113,15 @@ public class LineFinder : MonoBehaviour
             lineRenderer.positionCount = newCount;
             lineRenderer.SetPositions(newPositions);
         }
+    }
+    
+    private bool InteractWithUI()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+        return false;
     }
     
     

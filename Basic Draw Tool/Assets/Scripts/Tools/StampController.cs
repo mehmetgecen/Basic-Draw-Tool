@@ -10,12 +10,7 @@ public class StampController : MonoBehaviour
 
     void Update()
     {
-        if (InteractWithUI())
-        {
-            return;
-        }
-        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !InteractWithUI())
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = spawnDistance;
