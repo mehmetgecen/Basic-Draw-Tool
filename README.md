@@ -1,6 +1,6 @@
 # Draw & Paint App for Children
 
-This is my implementation of the task I received at mehmetgecen06@gmail.com
+This is my implementation of educational draw app for children.
 
 A drawing tool implemented in Unity, suitable for mobile platforms. This tool provides various features such as pen, eraser, bucket fill, and stamp tool.
 
